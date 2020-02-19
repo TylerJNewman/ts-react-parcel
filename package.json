@@ -10,7 +10,7 @@
   "license": "MIT",
   "main": "src/index.tsx",
   "scripts": {
-    "develop": "concurrently -r \"npm:type-check:watch\" \"npm:start\"",
+    "dev": "concurrently -r \"npm:type-check:watch\" \"npm:start\"",
     "start": "parcel ./src/index.html",
     "build": "npm run type-check && parcel build ./src/index.html --public-url '/'",
     "prettify": "prettier --write './src/**/*.{ts,tsx}'",
@@ -35,11 +35,8 @@
       "tsx",
       "js"
     ],
-    "setupFilesAfterEnv": [
-      "<rootDir>/src/setupTests.ts"
-    ],
     "moduleNameMapper": {
-      ".+\\.css$": "<rootDir>/src/styleMock.ts"
+      "\\.(css|less|scss|sss|styl)$": "<rootDir>/node_modules/jest-css-modules"
     },
     "testMatch": [
       "**/__tests__/*.(test|spec).(ts|tsx|js)"
@@ -51,10 +48,20 @@
     "Parcel"
   ],
   "dependencies": {
+    "autoprefixer": "^9.7.4",
+    "classnames": "^2.2.6",
+    "postcss-modules": "^1.5.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
+    "@babel/core": "^7.8.4",
+    "@babel/preset-env": "^7.8.4",
+    "@babel/preset-typescript": "^7.8.3",
+    "@rfgamaral/parcel-plugin-typings-for-css-modules": "^1.0.4",
+    "@testing-library/jest-dom": "^5.1.1",
+    "@testing-library/react": "^9.4.0",
+    "@types/classnames": "^2.2.9",
     "@types/jest": "^24.0.11",
     "@types/node": "^11.13.6",
     "@types/react": "^16.8.14",
@@ -62,8 +69,9 @@
     "concurrently": "^4.1.0",
     "husky": "^1.3.1",
     "jest": "^24.7.1",
+    "jest-css-modules": "^2.1.0",
     "jest-dom": "^3.1.3",
-    "jest-extended": "^0.11.1",
+    "jest-extended": "^0.11.5",
     "parcel-bundler": "^1.12.3",
     "prettier": "^1.17.0",
     "react-test-renderer": "^16.8.6",

@@ -1,11 +1,11 @@
-import './switch.styles.css'
-import * as React from 'react'
+import './switch.styles.css';
+import * as React from 'react';
 
-const noop = () => {}
+const noop = () => {};
 
 export interface SwitchProps extends React.HTMLProps<HTMLLabelElement> {
-  on: boolean
-  onClick: () => void
+  on: boolean;
+  onClick: () => void;
 }
 
 export function Switch({
@@ -21,7 +21,7 @@ export function Switch({
         .filter(Boolean)
         .join(' '),
     [on]
-  )
+  );
 
   return (
     <label aria-label={ariaLabel || 'Toggle'} style={{ display: 'block' }}>
@@ -35,5 +35,5 @@ export function Switch({
       />
       <span className={btnClassName} {...props} />
     </label>
-  )
+  );
 }
